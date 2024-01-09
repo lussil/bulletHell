@@ -1,0 +1,88 @@
+bulletHell - GDD
+Genero: Arcade, plataforma - v2 RPG
+História - 
+o que : em busca do cargo de cavaleiro(dinherio, status, permissões) por que : (pela aventura, titulo, se testar)
+quem: é um viajante sozinho(a principio)
+
+cada região tem um grupo de pessoas indo atrás do mesmo objetivo, e como só um grupo vai ganhar é preciso lutar por isso
+(Grupo ganhardor divide o premio)
+
+Modo
+Geração de inimigos(por onda) - cada +1 ponto (ZC - Zona de conflito) 
+cada 2-6 = um chefe (V2)
+3 fases, 2,4,6 inimigos - V(vantagem), D(Desvantagem) e N (neutro)
+
+2 > V,D
+3 > V,D,N 
+4 > D,D,V,N - XX,Y,Z
+6 > D,D,V,V,N,N - XXX,YY,Z ou XX,YY,ZZ
+
+Ideias
+Choose element at start 
+cada inimigo tem caracteristisca:
+pra não deixar fugir (V2)
+pra defesa
+para ataque
+
+status
+vida 
+velocidade
+atq F
+atq M
+D F
+D M
+
+elementos
+dano:pedra,fogo,grama,agua,neutro - fisico, especial
+void:cura,modStatus(redução status) (v2)
+
+ 
+pedra  (F)    > ar,fogo
+ar(D-) (S) 	  > grama,agua
+grama  (F,M)  > agua,pedra
+agua   (F,M)  > pedra,fogo
+fogo   (F,M)  > grama
+neutro (F,M)  >
+
+
+tipo/Classe
+Dano F
+Dano M
+suporte (V2)
+Modo D (se defende) (V2)
+
+V2 --- V2 
+Subir nivel
+Status: Precisão, Evasidade, alcance, Resistencia(mudança de status)
+Classes: H-Animal(V,f-D,A), H-Magico(M,DM), H-Fadas(M,V), H 
+Tradução para (ingles)
+
+
+# Jogo - v1
+## Gênero
+Arcade, bullet hell
+## Tema e Objetivo (v1-v2)
+uma cidade um periodo tipo fullmetal/hunterxhunte/onepiece - A um torneio para decidir quem será o novo grupo (G-bonde, I-bonde) da cidade. com o premio -bonde vem o salario e a permissão de servir, ou bonus em dinheiro e passe de viagem
+(pela liberdade, dinheiro e senso de servir a justiça)
+anel magico que alinha status e previne morte - e ferramentas inicias (na v1 apenas arma F e disparo M)
+todas armas e ferramentas são criadas por raros ferreiro magico (magica inerte)
+onde só aprende a criar quando os maiores dos guerreiros chega em um nivel elevado.
+
+fantasia, aventura 
+
+## Regras - Mecanica
+desvia e ataca com poderes e status inimigos que vem em sua direção.
+
+i.a basica e spawner ok 
+
+Água lentidão
+Pedra perto meele
+Ar velocidade
+Grama cura 
+Fogo distância dano, tenta ficar a serta distancia do inimigo para poder atirar
+
+
+
+
+
+
