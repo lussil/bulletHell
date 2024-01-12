@@ -32,10 +32,10 @@ public class gunScript : MonoBehaviour
             transform.position,
             transform.rotation);
 
-        IAttributes bulletBlackScript = bulletFired.GetComponent<IAttributes>();
-        if (bulletBlackScript != null)
+        IAttributes bulletAttributes = bulletFired.GetComponent<IAttributes>();
+        if (bulletAttributes != null)
         {
-            bulletBlackScript.Damage = damage;
+            bulletAttributes.Damage = damage;
 
         }
 

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletBlackScript : MonoBehaviour, IBullet, IAttributes
+public class bulletYellowScript : MonoBehaviour, IBullet, IAttributes
 {
 
     public int bulletDamage { get; set; }
@@ -37,12 +37,17 @@ public class bulletBlackScript : MonoBehaviour, IBullet, IAttributes
         set => debuff = value;
     }
 
-    public bulletBlackScript()
+    public bulletYellowScript()
     {
         BulletDamage = 10;
         life = 1;
 
         System.Random random = new System.Random();
+
+        if (random.NextDouble() <= 0.5)
+            debuff = "shock";
+
+
 
     }
 

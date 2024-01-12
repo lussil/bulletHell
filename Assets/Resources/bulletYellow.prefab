@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7442043825974947571}
   - component: {fileID: 3572944586722321882}
   - component: {fileID: 1793361054421794618}
-  - component: {fileID: 7213955695230331213}
   - component: {fileID: 8432506032452771256}
+  - component: {fileID: -5599117458721487362}
   m_Layer: 0
   m_Name: bulletYellow
   m_TagString: BulletBlack
@@ -154,19 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7213955695230331213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2768008861029215150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bcc23412a52379439f65f7366c996ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isALive: 1
 --- !u!114 &8432506032452771256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +166,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef189b1efc273fe489c214e86c425414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5599117458721487362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768008861029215150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c006ad76bb6d1a4f99c01343131a1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isALive: 1

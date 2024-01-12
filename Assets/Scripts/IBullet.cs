@@ -6,6 +6,7 @@ public interface IBullet
 {
 
     int bulletDamage { get; set; }
-  
+    string Debuff { get; set; }
+
 
 }

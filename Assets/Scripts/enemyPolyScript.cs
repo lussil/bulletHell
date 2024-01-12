@@ -35,8 +35,10 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
     public string Debuff
     {
         get => debuff;
-        set => debuff = value;
     }
+
+    private float debuffCountown;
+    private float timer;
 
     void Start()
     {
@@ -79,19 +81,31 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
 
             // Aplica a rotação suavizada
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10 * Time.deltaTime);
+            TakeDebuff();
+
         }
     }
 
-    public void onTakeDamage(int damage)
+    private void FixedUpdate()
+    {
+
+    }
+    public void onTakeDamage(int damage, string debuffTake)
     {
         if (life > 0)
         {
             life -= damage;
         }
+        Debug.Log(debuffTake);
+        AddDebuff(debuffTake);
 
-        // debuff 
+        Debug.Log(debuffTake);
 
+        ExecuteOnDeath();
+    }
 
+    public void ExecuteOnDeath()
+    {
         if (life <= 0)
         {
             onDeath();
@@ -99,6 +113,59 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
         }
     }
 
+    private void TakeDebuff()
+    {
+        debuffCountown -= Time.deltaTime;
+
+        if (debuffCountown > 0)
+        {
+
+
+            timer += Time.deltaTime;
+
+            if (timer >= 1)
+            {
+                Debug.Log(debuffCountown);
+                Debug.Log(debuff);
+                ApplyDebuff();
+                Debug.Log("Aplicar dano a cada segundo");
+                timer = 0;
+            }
+
+        }
+        else
+        {
+            debuff = null;
+            speedForce = 5f;
+        }
+
+    }
+
+    private void ApplyDebuff()
+    {
+        if (debuff == "burn")
+        {
+            life -= 5;
+        }
+
+        else if (debuff == "shock")
+
+        {
+            speedForce = 1.5f;
+        }
+
+        ExecuteOnDeath();
+
+    }
+
+    private void AddDebuff(string debuffTake)
+    {
+        debuff = debuffTake;
+
+        debuffCountown = 3f;
+        ApplyDebuff();
+
+    }
     private void onDeath()
     {
         ScoreManagerScript.score += point_enemy;

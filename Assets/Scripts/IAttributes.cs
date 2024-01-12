@@ -10,7 +10,7 @@ public interface IAttributes
     int Damage { get; set; }
     int Life { get; }
 
-    string Debuff { get; set; }
+    string Debuff { get; }
 
 }
 

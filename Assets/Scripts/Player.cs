@@ -118,13 +118,14 @@ public class Player : MonoBehaviour, IAttributes
 
     }
 
-    private void onTakeDamage(int dano)
+    private void onTakeDamage(int dano, string debuffTake)
     {
 
         if (isALive)
         {
             life -= dano;
         }
+
 
         if (life <= 0)
         {

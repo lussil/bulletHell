@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 public interface IDamegeable
 {
-    event Action<int> DeathEvent;
+    event Action<int, string> DeathEvent;
     int damage { get; }
 
-    void takeDamage(int damage);
+    void TakeDamage(int damage, string debuff = null);
 
 }

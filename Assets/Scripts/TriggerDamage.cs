@@ -20,16 +20,18 @@ public class TriggerDamage : MonoBehaviour
         IDamegeable damageable = gameObjectAtingido.GetComponent<IDamegeable>();
 
         IAttributes attributesAttacker = GetComponent<IAttributes>();
+        IBullet bala = GetComponent<IBullet>();
 
         if (gameObjectAtingido.CompareTag("Player") & damageable != null)
         {
-            damageable.takeDamage(attributesAttacker.Damage);
+            damageable.TakeDamage(attributesAttacker.Damage);
         }
 
-        if (gameObjectAtingido.CompareTag("Enemy") & GetComponent<IBullet>() != null)
+        if (gameObjectAtingido.CompareTag("Enemy") & bala != null)
         { // enemy só toma dano se for da interface bala 
-            //Debug.Log(attributesAttacker.Damage);
-            damageable.takeDamage(attributesAttacker.Damage);
+            Debug.Log(attributesAttacker.Damage);
+            Debug.Log(bala.Debuff);
+            damageable.TakeDamage(attributesAttacker.Damage, bala.Debuff);
         }
 
     }
