@@ -20,9 +20,15 @@ public class SpawnerEnemyScript : MonoBehaviour
 
 
     // Start is called before the first frame update
-    IEnumerator Start()
+    void Start()
     {
-        
+        _ = StartCoroutine(StartSpawn());
+
+    }
+
+    public IEnumerator StartSpawn()
+    {
+
 
         wave = "Onda 1/3";
         yield return StartCoroutine(SpawnEnemiesWithDelay());   // Onda 1
@@ -38,8 +44,8 @@ public class SpawnerEnemyScript : MonoBehaviour
         //countEnemies
         InGameScript.numberOfEnemies = countEnemies;
         InGameScript.isEndGame = true;
-       
-        
+
+
 
     }
 

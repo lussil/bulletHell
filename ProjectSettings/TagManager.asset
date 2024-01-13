@@ -8,6 +8,7 @@ TagManager:
   - LogicShoot
   - BulletBlack
   - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX

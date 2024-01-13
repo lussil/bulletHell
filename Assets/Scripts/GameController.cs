@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 public class GameController : MonoBehaviour
 {
 
     Player player;
     AudioSource audioSource;
     public AudioSource backgroundMusic;
+
+    SpawnerEnemyScript SpawnerScript;
 
 
     static int nivelBulletMax = 3;
@@ -38,10 +41,29 @@ public class GameController : MonoBehaviour
         get { return isGameOver; }
     }
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        SpawnerScript = GameObject
+          .FindGameObjectWithTag("Spawner")
+          .GetComponent<SpawnerEnemyScript>();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+
+        }
+        if (SpawnerScript == null)
+        {
+            SpawnerScript = GameObject
+              .FindGameObjectWithTag("Spawner")
+              .GetComponent<SpawnerEnemyScript>();
+
+        }
 
     }
 
@@ -67,9 +89,8 @@ public class GameController : MonoBehaviour
     {
         isGameOver = true;
         await Task.Delay(2000);
-        Debug.Break();
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        // Menu de restart
+
+        SceneManager.LoadScene("MenuInicial");
     }
 
     public static void updateNivelBullet()
@@ -103,9 +124,26 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
-    public static void startGame()
+    public void startGame()
     {
         SceneManager.LoadScene("Level_1");
+
+        NivelBullet = 1;
+
+        NivelGun = 1;
+
+        nivelPlayerMax = 3;
+        NivelPlayer = 1;
+
+        isPaused = false;
+        isGameOver = false;
+
+        ScoreManagerScript.score = 0;
+        SpawnerEnemyScript.wave = "Onda 1/3";
+
+        _ = StartCoroutine(SpawnerScript.StartSpawn());
+       
+
     }
     public static void StartMenu()
     {
