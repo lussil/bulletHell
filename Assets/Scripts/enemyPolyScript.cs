@@ -105,6 +105,7 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
     {
         if (life <= 0)
         {
+           
             onDeath();
             Destroy(this.gameObject);
         }
@@ -161,6 +162,7 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
     }
     private void onDeath()
     {
+        InGameScript.enemiesDead++;
         ScoreManagerScript.score += point_enemy;
         damageable.DeathEvent -= onTakeDamage;
     }

@@ -29,8 +29,6 @@ public class TriggerDamage : MonoBehaviour
 
         if (gameObjectAtingido.CompareTag("Enemy") & bala != null)
         { // enemy só toma dano se for da interface bala 
-            Debug.Log(attributesAttacker.Damage);
-            Debug.Log(bala.Debuff);
             damageable.TakeDamage(attributesAttacker.Damage, bala.Debuff);
         }
 

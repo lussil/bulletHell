@@ -17,12 +17,7 @@ public class enemyExagonScript : MonoBehaviour, IAttributes
 
     IDamegeable damageable;
 
-    private int damage;
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
+    public int Damage { get; set; }
 
     private int life;
     public int Life
@@ -162,6 +157,8 @@ public class enemyExagonScript : MonoBehaviour, IAttributes
     private void onDeath()
     {
         ScoreManagerScript.score += point_enemy;
+        InGameScript.enemiesDead++;
+
         damageable.DeathEvent -= onTakeDamage;
     }
 }

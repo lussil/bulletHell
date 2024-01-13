@@ -13,12 +13,16 @@ public class SpawnerEnemyScript : MonoBehaviour
 
     [SerializeField]
     GameObject hexanemy;
+
     public static string wave;
+
+    private int countEnemies = 0;
 
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        
 
         wave = "Onda 1/3";
         yield return StartCoroutine(SpawnEnemiesWithDelay());   // Onda 1
@@ -31,8 +35,11 @@ public class SpawnerEnemyScript : MonoBehaviour
         wave = "Onda 3/3";
         yield return StartCoroutine(SpawnEnemiesWithDelay(12, 7)); // Onda 3
 
-
-
+        //countEnemies
+        InGameScript.numberOfEnemies = countEnemies;
+        InGameScript.isEndGame = true;
+       
+        
 
     }
 
@@ -40,7 +47,7 @@ public class SpawnerEnemyScript : MonoBehaviour
     {
         GameObject enemy = null;
         GameObject enemy2 = null;
-
+        countEnemies += NunberOfEnemy + numberOfSecondEnemy;
 
         for (int i = 0; i < NunberOfEnemy; i++)
         {

@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.ShaderData;
-
 public class GameController : MonoBehaviour
 {
 
     Player player;
     AudioSource audioSource;
+    public AudioSource backgroundMusic;
 
 
     static int nivelBulletMax = 3;
@@ -30,7 +29,9 @@ public class GameController : MonoBehaviour
     public static bool IsPaused
     {
         get { return isPaused; }
+        set { isPaused = value; }
     }
+
 
     public static bool IsGameOver
     {
@@ -67,7 +68,8 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         await Task.Delay(2000);
         Debug.Break();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Menu de restart
     }
 
     public static void updateNivelBullet()
@@ -94,6 +96,24 @@ public class GameController : MonoBehaviour
             NivelPlayer++;
         }
     }
+
+
+    public static void quitGame()
+    {
+        Application.Quit();
+    }
+
+    public static void startGame()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
+    public static void StartMenu()
+    {
+        SceneManager.LoadScene("MenuInicial");
+    }
+
+
+
 
 
 
