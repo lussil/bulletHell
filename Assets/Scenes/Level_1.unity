@@ -2039,6 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3763037110742779272, guid: 357490ca85e4a0745a308a87fc6826f1, type: 3}
+  hexanemy: {fileID: 3763037110742779272, guid: 58505265cf025fa4782bcc462305f55c, type: 3}
 --- !u!4 &1408890016
 Transform:
   m_ObjectHideFlags: 0

@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using System.Threading.Tasks;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class SpawnerEnemyScript : MonoBehaviour
 {
     [SerializeField]
     GameObject enemy;
+
+    [SerializeField]
+    GameObject hexanemy;
     public static string wave;
 
 
@@ -21,20 +25,21 @@ public class SpawnerEnemyScript : MonoBehaviour
 
         yield return StartCoroutine(CronometroForNextRound());
         wave = "Onda 2/3";
-        yield return StartCoroutine(SpawnEnemiesWithDelay(10)); // Onda 2
+        yield return StartCoroutine(SpawnEnemiesWithDelay(8, 3)); // Onda 2
 
         yield return StartCoroutine(CronometroForNextRound());
         wave = "Onda 3/3";
-        yield return StartCoroutine(SpawnEnemiesWithDelay(15)); // Onda 3
+        yield return StartCoroutine(SpawnEnemiesWithDelay(12, 7)); // Onda 3
 
 
 
 
     }
 
-    IEnumerator SpawnEnemiesWithDelay(int NunberOfEnemy = 5)
+    IEnumerator SpawnEnemiesWithDelay(int NunberOfEnemy = 5, int numberOfSecondEnemy = 0)
     {
         GameObject enemy = null;
+        GameObject enemy2 = null;
 
 
         for (int i = 0; i < NunberOfEnemy; i++)
@@ -45,11 +50,30 @@ public class SpawnerEnemyScript : MonoBehaviour
             {
                 yield return null;
             }
-           
+
             enemy = instantiateEnemy();
         }
 
+        for (int i = 0; i < numberOfSecondEnemy; i++)
+        {
+            yield return new WaitForSeconds(2f);
+
+            while (GameController.IsPaused | GameController.IsGameOver)
+            {
+                yield return null;
+            }
+
+            enemy2 = instantiateEnemy(true);
+        }
+
+
+
         while (enemy != null)
+        {
+            yield return null;
+        }
+
+        while (enemy2 != null)
         {
             yield return null;
         }
@@ -73,11 +97,18 @@ public class SpawnerEnemyScript : MonoBehaviour
     }
 
 
-    GameObject instantiateEnemy()
+    GameObject instantiateEnemy(bool instatiateHexanamy = false)
     {
+        GameObject inimigoToIntantiete = enemy;
+
+        if (instatiateHexanamy)
+        {
+            inimigoToIntantiete = hexanemy;
+        }
+
         float RandomX = UnityEngine.Random.Range(-13f, 13f);
         float RandomY = UnityEngine.Random.Range(-13f, 13.0f);
-        GameObject vims = Instantiate(enemy, new Vector2(RandomY, RandomX), transform.rotation);
+        GameObject vims = Instantiate(inimigoToIntantiete, new Vector2(RandomY, RandomX), transform.rotation);
         return vims;
     }
 

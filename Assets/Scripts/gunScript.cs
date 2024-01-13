@@ -63,7 +63,7 @@ public class gunScript : MonoBehaviour
                 break;
 
             case 3:
-                damagePerNivel = new System.Random().Next(28, 36);
+                damagePerNivel = new System.Random().Next(28, 37);
                 break;
 
             default:

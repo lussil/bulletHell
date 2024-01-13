@@ -8,12 +8,12 @@ using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(IDamegeable))]
 
-public class enemyPolyScript : MonoBehaviour, IAttributes
+public class enemyExagonScript : MonoBehaviour, IAttributes
 {
     public Rigidbody2D rb;
-    public float speedForce = 5;
+    public float speedForce = 7;
     public GameObject player;
-    private int point_enemy = 1;
+    private int point_enemy = 2;
 
     IDamegeable damageable;
 
@@ -43,7 +43,7 @@ public class enemyPolyScript : MonoBehaviour, IAttributes
     void Start()
     {
         Damage = 10;
-        life = 20;
+        life = 35;
         rb = this.GetComponent<Rigidbody2D>();
 
         damageable = GetComponent<IDamegeable>();
